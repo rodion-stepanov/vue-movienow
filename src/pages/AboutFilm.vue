@@ -25,14 +25,6 @@ export default {
     loading: true,
     film: {},
   }),
-  // data: () => ({
-  //   name: "",
-  // }),
-  // props: {
-  //   film: {
-  //     type: Object,
-  //   },
-  // },
   mounted() {
     fetch(
       `https://floating-sierra-20135.herokuapp.com/api/movie${this.$router.history.current.path}`
