@@ -13,7 +13,7 @@ import "./vendor/normalize.css";
 export default {
   name: "App",
   components: {
-    Header,
+    Header
   },
 };
 </script>
