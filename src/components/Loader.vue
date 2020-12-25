@@ -1,7 +1,5 @@
 <template>
-  <div class="loader">
-    <img src="../assets/loader.png" class="loader__image" />
-  </div>
+  <img src="../assets/loader.png" class="loader" />
 </template>
 
 <script>
@@ -10,14 +8,9 @@ export default {};
 
 <style>
 .loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20%;
-}
-.loader__image {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.625em;
   object-fit: contain;
-  width: 136px;
-  height: 136px;
 }
 </style>

@@ -51,13 +51,11 @@ export default {
     };
   },
   mounted() {
-    fetch("https://floating-sierra-20135.herokuapp.com/api/movies").then(
-      (response) =>
-        response.json().then((res) => {
-          this.films = res.data;
-          this.loading = false;
-        })
-    );
+    fetch("https://floating-sierra-20135.herokuapp.com/api/movies")
+      .then((response) => response.json())
+      .then((res) => (this.films = res.data))
+      .catch((err) => console.log(err))
+      .finally(() => (this.loading = false));
   },
   methods: {
     nameSort: function () {

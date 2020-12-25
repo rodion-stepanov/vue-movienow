@@ -5,7 +5,11 @@
       <p class="link__text">Назад к списку</p>
     </router-link>
     <Loader v-if="loading" />
-    <FilmItem v-if="film.title" v-bind:film="film" v-bind:isLifting="isLifting" />
+    <FilmItem
+      v-if="film.title"
+      v-bind:film="film"
+      v-bind:isLifting="isLifting"
+    />
     <p class="film__info-text" v-if="!film && !loading">
       К сожалению, по вашему запросу ничего не найдено...
     </p>
@@ -28,12 +32,11 @@ export default {
   mounted() {
     fetch(
       `https://floating-sierra-20135.herokuapp.com/api/movie${this.$router.history.current.path}`
-    ).then((response) =>
-      response.json().then((res) => {
-        this.film = res.data;
-        this.loading = false;
-      })
-    );
+    )
+      .then((response) => response.json())
+      .then((res) => (this.film = res.data))
+      .catch((err) => console.log(err))
+      .finally(() => (this.loading = false));
   },
 };
 </script>
